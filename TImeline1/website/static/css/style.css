@@ -1,0 +1,57 @@
+    border-radius: 50%;
+    background-color: #64b5f6;
+    margin-right: 1rem;
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .timeline .content {
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+  transition: background-color 0.3s, color 0.3s;
+
+  /* Light mode colors */
+  background-color: #e6d6b0;
+  color: #1e1e1e;
+}
+
+  .content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 25px;
+  }
+
+  .content p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Default Light Theme */
+  .content {
+    background-color: #f9f9f9;
+    color: #1e1e1e;
+  }
+
+  .content h3 {
+    color: #1976d2;
+  }
+
+  /* Auto Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .content {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    .content h3 {
+      color: #90caf9;
+    }
+  }
+  .content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  display: block;
+}

@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %} Python Journal{% endblock %}
+{% block content %}
+
+
+
+
+
+<h3 class="mt-4 text-center">My Python Development History</h3>
+<br>
+<div>
+<p class="text-center">
+  I've been coding in Python since March 2024. This page is my digital journal tracking everything <br>
+  I've learned and built since starting my coding journey.
+</p>
+</div>
+<br>
+
+<h4 class="mb-4 text-center">Timeline</h4>
+<div class="timeline-container">
+  <div class="timeline">
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>March-May 2024</h3>
+          <p>I began learning the Basics of Python including loops, input statements and general syntax</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>June 2024</h3>
+        <p>I began to explore functions, windows, buttons, lambdas, and image editing.  I also started learning Pygame.</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>July 2024</h3>
+        <p>I learned about Multithreading and Data entry forms, began my first major project which is a wizard themed clicker game <br>
+         I also touched on Object-Oriented Programming </p>
+        <br>
+        <img src="{{ url_for('static', filename='images/catboyAlpha.png') }}" alt="My first attempt at a game project">
+        <br>
+
+      </div>
+    </div>
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>August & September 2024</h3>
+        <p> I successfully completed a Beginner's Python Course.</p>
+
+      </div>
+      </div>
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+      <h3>October-December 2024</h3>
+        <p> I began working on basic games and UIs, I also learned about Classes and Object-Oriented Programming
+         <br> and made my first discord bot which is used to moderate my server</p>
+        <br>
+        <img src="{{ url_for('static', filename='images/discordBot.png') }}" alt="My first discord bot">
+      </div>
+    </div>
+   <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>January–April 2025</h3>
+        <p>In January, I built the chrome dino game</p>
+        <br>
+
+        <img src="{{ url_for('static', filename='images/Dino.png') }}" alt= "Dino game">
+        <br>
+
+        <p>I also began learning about ciphers, cybersecurity, how to bypass captchas, and password generators. <br>
+          I also started exploring AI, Selenium, and Flask in March. </p>
+        <br>
+        <br>
+        <br>
+        <br>
+
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="dot"></div>
+      <div class="content">
+        <h3>May 2025</h3>
+        <p>I created a firework animation using pygame, and I began learning about camera angles for game development <br>
+          because I was experimenting with creating a turn based rpg.
+          <br>
+          <br>
+          <img src="{{ url_for('static', filename='images/game.png') }}" alt= "Turn-based RPG">
+          <br>
+          <br>
+          <img src="{{ url_for('static', filename='images/camera.png') }}" alt= "camera">
+          <br>
+          <br>
+          <img src="{{ url_for('static', filename='images/fireworks.png') }}" alt= "fireworks">
+          <br>
+          <br>
+          I'm also teaching my friends some basic Python.</p>
+      </div>
+    </div>
+<div class="event">
+  <div class="dot"></div>
+  <div class="content">
+    <h3>June 2025</h3>
+    <p>I've created this website, and I'm getting more into Web Development <br>
+Eventually, I want to learn HTML and CSS and become more versatile as a developer.</p>
+  </div>
+</div>
+
+<div class="event">
+  <div class="dot"></div>
+  <div class="content">
+    <h3>July 2025</h3>
+    <p>I started working on enemy AI behavior and collision .</p>
+  </div>
+</div>
+
+<div class="event">
+  <div class="dot"></div>
+  <div class="content">
+    <h3>August 2025</h3>
+    <p>I learned hashing for data science, got deeper into networking with a basic TCP chat app which includes moderation  <br>
+      and learned how to encrypt passwords with bcrypt.</p>
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

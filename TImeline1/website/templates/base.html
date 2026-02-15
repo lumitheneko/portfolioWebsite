@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    /* ---------- Layout ---------- */
+    .container {
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #D2B48C; /* Light mode container bg */
+    }
+
+    body {
+      background-color: #E1D39A;
+      color: #000000;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    /* ---------- Dark Mode Styles ---------- */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .navbar {
+      background-color: #1f1f1f !important;
+    }
+
+    body.dark-mode a.nav-link {
+      color: #90caf9 !important;
+    }
+
+    body.dark-mode .container {
+      background-color: #1e1e1e;
+    }
+
+    .theme-toggle {
+      margin-left: auto;
+      color: white;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* ---------- Timeline Styles ---------- */
+    .timeline-container {
+      overflow-x: auto;
+      padding: 20px;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+    }
+
+    .timeline {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .event {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #64b5f6;
+      margin-right: 1rem;
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .timeline .content {
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1;
+      background-color: #f9f9f9;
+      color: #1e1e1e;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .timeline .content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+      color: #1976d2;
+    }
+
+    .timeline .content p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode .timeline .content {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    body.dark-mode .timeline .content h3 {
+      color: #90caf9;
+    }
+  </style>
+
+  <title>{% block title %}Home{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" id="home" href="/">Home</a>
+        <a class="nav-item nav-link" id="python" href="/My-python-code">My Progress in Python</a>
+        <a class="nav-item nav-link" id="HTML" href="/My-HTML-code">My Progress in HTML</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleDarkMode()">🌓</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    // Set initial theme from localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
+
+  {% block javascript %}
+  <script type="text/javascript">
+    function deleteNote(noteId) {
+      fetch("/delete-note", {
+        method: "POST",
+        body: JSON.stringify({ noteId: noteId }),
+      }).then((_res) => {
+        window.location.href = "/";
+      });
+    }
+  </script>
+  {% endblock %}
+</body>
+</html>
